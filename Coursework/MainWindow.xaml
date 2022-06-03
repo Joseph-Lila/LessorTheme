@@ -1,0 +1,47 @@
+﻿<Window x:Class="Coursework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Coursework"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border CornerRadius="25"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}" >
+                <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.12*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel Background="Cornsilk">
+                <Button DockPanel.Dock="Right" Template="{StaticResource btTemplate}" Margin="10px" FontSize="26" FontFamily="Veranda" Background="LawnGreen" Click="Button_GoToSignUp" Content="Sign Up"/>
+                <Button x:FieldModifier="public" Name="LoginButton" DockPanel.Dock="Right" Template="{StaticResource btTemplate}" Margin="10px" FontSize="26" FontFamily="Veranda" Background="Yellow" Click="Button_LogIn" Content="Log In"/>
+                <ComboBox SelectionChanged="RolesBox_OnSelectionChanged" Name="RolesBox" DockPanel.Dock="Left" MinWidth="200" Margin="15" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    
+                </ComboBox>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontFamily="Veranda" Text="Учет арендных торговых мест"/>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame x:FieldModifier="public" Padding="35px" Name="MainFrame" />
+        </Grid>
+        <Grid Grid.Row="2" Background="Violet">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontFamily="Veranda" Text="® All right reserved"/>
+        </Grid>
+    </Grid>        
+</Window>

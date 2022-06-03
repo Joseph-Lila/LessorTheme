@@ -1,0 +1,85 @@
+﻿<Page x:Class="Coursework.Pages.MarkContractPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Coursework.Pages"
+      mc:Ignorable="d"
+      Title="MarkContractPage">
+      <Grid>
+            <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="0.4*"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0" HorizontalContentAlignment="Center" x:Name="ComplexList" SelectionChanged="ComplexList_OnSelectionChanged">
+                  <ListBox.ItemTemplate>
+                        <DataTemplate>
+                              <StackPanel Margin="10" HorizontalAlignment="Center">
+                                    <Image Width="100" Height="75" Source="D:\RiderProjects\Coursework\Coursework\Images\arenda.jpg" />
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Страна:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=Country}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Город:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=City}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Улица:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=Street}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Номер здания:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=BuildingNumber}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Номер комнаты:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=RoomNumber}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Номер места:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=PlaceNumber}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Стоимость за день:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=PricePerDay}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Никнейм:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=NickName}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                          <TextBlock IsEnabled="False" FontSize="20" Text="Рейтинг арендодателя:   "></TextBlock>
+                                          <TextBlock FontSize="20" Text="{Binding Path=Rating}"></TextBlock>
+                                    </StackPanel>
+                              </StackPanel>
+                        </DataTemplate>
+                  </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Row="1" Margin="10">
+                  <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
+                  <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <TextBlock IsEnabled="False" FontSize="20" Text="Начало:   " Padding="10"></TextBlock>
+                        <DatePicker Name="StartDay" SelectedDateChanged="StartDay_OnSelectedDateChanged" FontSize="20" Padding="10"/>
+                  </StackPanel>
+                  <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <TextBlock IsEnabled="False" FontSize="20" Text="Конец:   " Padding="10"></TextBlock>
+                        <DatePicker Name="FinishDay" SelectedDateChanged="FinishDay_OnSelectedDateChanged" FontSize="20" Padding="10"/>
+                  </StackPanel>
+                  <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <TextBlock IsEnabled="False" FontSize="20" Text="Стоимость:   " Padding="10"></TextBlock>
+                        <TextBox Name="TotalCost" FontSize="20" Padding="10" TextAlignment="Center" IsEnabled="False"/>
+                  </StackPanel>
+                  <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <Button Name="TakeAPlace" FontSize="20" Padding="10" Content="Взять в аренду" IsEnabled="False" Click="TakeAPlace_OnClick" />
+                  </StackPanel>
+            </Grid>
+      </Grid>
+</Page>

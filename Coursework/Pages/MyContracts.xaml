@@ -1,0 +1,64 @@
+﻿<Page x:Class="Coursework.Pages.MyContracts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Coursework.Pages"
+      mc:Ignorable="d"
+      Title="MyContracts">
+      <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="700" />
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Margin" Value="15" />
+        </Style>
+      </Page.Resources>
+      <Grid>
+          <Grid.RowDefinitions>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="0.4*"/>
+          </Grid.RowDefinitions>
+          <ListBox Grid.Row="0" HorizontalContentAlignment="Center" x:Name="ContractsList" SelectionChanged="ContractsList_OnSelectionChanged">
+              <ListBox.ItemTemplate>
+                  <DataTemplate>
+                      <StackPanel Margin="10" HorizontalAlignment="Center">
+                          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                              <TextBlock FontSize="20" Text="Id:   "></TextBlock>
+                              <TextBlock FontSize="20" Text="{Binding Path=Id}"></TextBlock>
+                          </StackPanel>
+                          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                              <TextBlock FontSize="20" Text="Начало:   "></TextBlock>
+                              <TextBlock FontSize="20" Text="{Binding Path=Start}"></TextBlock>
+                          </StackPanel>
+                          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                              <TextBlock FontSize="20" Text="Конец:   "></TextBlock>
+                              <TextBlock FontSize="20" Text="{Binding Path=Finish}"></TextBlock>
+                          </StackPanel>
+                          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                              <TextBlock FontSize="20" Text="Долг:   "></TextBlock>
+                              <TextBlock FontSize="20" Text="{Binding Path=Debt}"></TextBlock>
+                          </StackPanel>
+                      </StackPanel>
+                  </DataTemplate>
+              </ListBox.ItemTemplate>
+          </ListBox>
+          <Grid Grid.Row="1" Margin="10">
+              <Grid.ColumnDefinitions>
+                  <ColumnDefinition></ColumnDefinition>
+                  <ColumnDefinition></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                  <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Text="Сумма для оплаты:   " Padding="10"></TextBlock>
+                  <TextBox Name="MoneyForDebt" FontSize="20" Padding="10" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="MoneyForDebt_OnPreviewTextInput"></TextBox>
+              </StackPanel>
+              <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                  <Button Name="RepayDebt" FontSize="20" Padding="10" Content="Погасить долг" IsEnabled="False" Click="RepayDebt_OnClick"></Button>
+              </StackPanel>
+          </Grid>
+      </Grid>
+</Page>
